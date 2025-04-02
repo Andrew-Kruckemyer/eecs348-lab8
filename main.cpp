@@ -95,7 +95,8 @@ int main() {
                 std::cin >> choice;
                 std::cout << "Enter row indices to swap (space separated): ";
                 std::cin >> row1 >> row2;
-                if (choice == 1) {
+                if (row1 >= 0 && row2 >= 0 && row1 < matrix1.get_size() && row2 < matrix1.get_size()) {
+                    if (choice == 1) {
                     matrix1.swap_rows(row1, row2);
                     matrix1.print_matrix();
                 } else if (choice == 2) {
@@ -103,6 +104,10 @@ int main() {
                     matrix2.print_matrix();
                 }
                 break;
+                } else {
+                    std::cout << "Invalid row indices. Please try again.\n";
+                    continue;
+                }
             }
             case 5: {
                 std::size_t col1, col2;
@@ -110,7 +115,8 @@ int main() {
                 std::cin >> choice;
                 std::cout << "Enter column indices to swap (space separated): ";
                 std::cin >> col1 >> col2;
-                if (choice == 1) {
+                if (col1 >= 0 && col2 >= 0 && col1 < matrix1.get_size() && col2 < matrix1.get_size()) {
+                    if (choice == 1) {
                     matrix1.swap_cols(col1, col2);
                     matrix1.print_matrix();
                 } else if (choice == 2) {
@@ -118,6 +124,10 @@ int main() {
                     matrix2.print_matrix();
                 }
                 break;
+                } else {
+                    std::cout << "Invalid column indices. Please try again.\n";
+                    continue;
+                }
             }
             case 6: {
                 std::size_t row, col;
@@ -126,7 +136,8 @@ int main() {
                 std::cin >> choice;
                 std::cout << "Enter row, column, and new value (space separated): ";
                 std::cin >> row >> col >> value;
-                if (choice == 1){
+                if (row >= 0 && col >= 0 && row < matrix1.get_size() && col < matrix1.get_size()) {
+                    if (choice == 1){
                     matrix1.set_value(row, col, value);
                     matrix1.print_matrix();
                 } else if (choice == 2){
@@ -134,6 +145,10 @@ int main() {
                     matrix2.print_matrix();
                 }
                 break;
+                } else {
+                    std::cout << "Invalid row or column index. Please try again.\n";
+                    continue;
+                }
             }
             case 7:
                 std::cout << "Exiting program.\n";
